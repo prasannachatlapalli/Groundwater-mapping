@@ -35,9 +35,6 @@ hide_streamlit_ui = """
     .viewerBadge_link__1S137 {display: none !important;}
     div[class^="viewerBadge_container"] {display: none !important;}
     div[class*="viewerBadge"] {display: none !important;}
-    
-    /* 4. Pull the main content up to fill the empty space */
-    .block-container {padding-top: 1rem !important;}
 </style>
 """
 
