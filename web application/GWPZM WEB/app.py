@@ -174,7 +174,7 @@ TIFF_LAYERS_REGISTRY = {
     "Slope": "GWPZM OUTPUT/outputfmt/format/tiffs/Slope1.tif",
     "Soil": "GWPZM OUTPUT/outputfmt/format/tiffs/soil.tif",
     "LULC": "GWPZM OUTPUT/outputfmt/format/tiffs/LULC1.tif"
-
+}
 
 # =====================================================================
 # 🔍 LIVE PATH DIAGNOSTICS CONTROL PANEL
