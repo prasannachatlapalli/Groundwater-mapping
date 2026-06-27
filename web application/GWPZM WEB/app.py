@@ -31,10 +31,6 @@ hide_ui_style = """
     .viewerBadge_link__1S137 {display: none !important;}
     div[class^="viewerBadge_container"] {display: none !important;}
     div[class*="viewerBadge"] {display: none !important;}
-    
-    /* 2. Hide header/footer */
-    header {visibility: hidden !important;}
-    footer {visibility: hidden !important;}
 </style>
 """
 
