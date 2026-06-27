@@ -20,6 +20,26 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
+# CSS hack to hide the GitHub/Fork badge and the top right toolbar
+hide_github_icon = """
+<style>
+/* Hides the Streamlit Cloud viewer badge */
+.viewerBadge_container__1QSob,
+.styles_viewerBadge__1yB5_,
+.viewerBadge_link__1S137,
+.viewerBadge_text__1JaDK {
+    display: none !important;
+}
+
+/* Optionally, hides the entire top-right Streamlit toolbar */
+[data-testid="stToolbar"] {
+    visibility: hidden !important;
+}
+</style>
+"""
+
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
 # ---------------- TITLE ----------------
