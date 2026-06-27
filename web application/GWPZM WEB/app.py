@@ -23,11 +23,7 @@ import pandas as pd
 # --- FORCE HIDE STREAMLIT UI (Toolbar kept visible) ---
 hide_streamlit_ui = """
 <style>
-    /* 1. Hide the main top header and default menu */
-    header {visibility: hidden !important;}
-    #MainMenu {visibility: hidden !important;}
-    
-    /* 2. Aggressively target the GitHub/Fork viewer badges */
+    /* 1. Aggressively target the GitHub/Fork viewer badges */
     .viewerBadge_container__1QSob {display: none !important;}
     .viewerBadge_link__1S137 {display: none !important;}
     div[class^="viewerBadge_container"] {display: none !important;}
