@@ -20,21 +20,21 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-# --- PAGE CONFIG ---
-st.set_page_config(layout="wide", initial_sidebar_state="expanded")
-
-# --- UI & BADGE HIDER ---
-hide_ui_style = """
+hide_github_badge = """
 <style>
-    /* 1. Aggressively target the GitHub/Fork viewer badges */
-    .viewerBadge_container__1QSob {display: none !important;}
-    .viewerBadge_link__1S137 {display: none !important;}
-    div[class^="viewerBadge_container"] {display: none !important;}
-    div[class*="viewerBadge"] {display: none !important;}
+    /* This targets the GitHub/Fork badge specifically */
+    .viewerBadge_container__1QSob,
+    .viewerBadge_link__1S137,
+    div[class^="viewerBadge_container"],
+    div[class*="viewerBadge"] {
+        display: none !important;
+    }
 </style>
 """
 
-st.markdown(hide_ui_style, unsafe_allow_html=True)
+st.markdown(hide_github_badge, unsafe_allow_html=True)
+
+# ---> Your app content follows below <---
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
