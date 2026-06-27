@@ -20,22 +20,30 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-# 1. Configure the sidebar to stay expanded
+# --- PAGE CONFIG ---
 st.set_page_config(layout="wide", initial_sidebar_state="expanded")
 
-# 2. CSS to hide only the collapse button (the arrow)
-hide_sidebar_arrow = """
+# --- UI & BADGE HIDER ---
+hide_ui_style = """
 <style>
-    /* This targets the button container that holds the << arrow */
+    /* 1. Remove the Sidebar collapse arrow */
     [data-testid="stSidebarCollapse"] {
         display: none !important;
     }
+
+    /* 2. Aggressively target the GitHub/Fork viewer badges */
+    .viewerBadge_container__1QSob {display: none !important;}
+    .viewerBadge_link__1S137 {display: none !important;}
+    div[class^="viewerBadge_container"] {display: none !important;}
+    div[class*="viewerBadge"] {display: none !important;}
+    
+    /* 3. Hide header/footer */
+    header {visibility: hidden !important;}
+    footer {visibility: hidden !important;}
 </style>
 """
 
-st.markdown(hide_sidebar_arrow, unsafe_allow_html=True)
-
-# ... rest of your code ...
+st.markdown(hide_ui_style, unsafe_allow_html=True)
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
