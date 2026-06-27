@@ -20,27 +20,29 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-import streamlit as st
-
-import streamlit as st
-
-# --- ULTIMATE GITHUB / BADGE HIDER ---
-hide_github_icon = """
+# --- FORCE HIDE STREAMLIT UI (Toolbar kept visible) ---
+hide_streamlit_ui = """
 <style>
-    /* 1. Hide the top-right Deploy/GitHub button (new in Streamlit) */
-    .stAppDeployButton {display: none !important;}
-    [data-testid="stAppDeployButton"] {display: none !important;}
+    /* 1. Hide the main top header and default menu */
+    header {visibility: hidden !important;}
+    #MainMenu {visibility: hidden !important;}
     
-    /* 2. Hide the bottom-right GitHub/Fork viewer badge */
-    [data-testid="stViewerBadge"] {display: none !important;}
-    div[class^="viewerBadge"] {display: none !important;}
+    /* 2. Hide the default Streamlit footer */
+    footer {visibility: hidden !important;}
+    
+    /* 3. Aggressively target the GitHub/Fork viewer badges */
+    .viewerBadge_container__1QSob {display: none !important;}
+    .viewerBadge_link__1S137 {display: none !important;}
+    div[class^="viewerBadge_container"] {display: none !important;}
     div[class*="viewerBadge"] {display: none !important;}
-    a[class*="viewerBadge"] {display: none !important;}
     
+    /* 4. Pull the main content up to fill the empty space */
+    .block-container {padding-top: 1rem !important;}
 </style>
 """
 
-st.markdown(hide_github_icon, unsafe_allow_html=True)
+st.markdown(hide_streamlit_ui, unsafe_allow_html=True)
+
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
 # ---------------- TITLE ----------------
