@@ -26,18 +26,13 @@ st.set_page_config(layout="wide", initial_sidebar_state="expanded")
 # --- UI & BADGE HIDER ---
 hide_ui_style = """
 <style>
-    /* 1. Remove the Sidebar collapse arrow */
-    [data-testid="stSidebarCollapse"] {
-        display: none !important;
-    }
-
-    /* 2. Aggressively target the GitHub/Fork viewer badges */
+    /* 1. Aggressively target the GitHub/Fork viewer badges */
     .viewerBadge_container__1QSob {display: none !important;}
     .viewerBadge_link__1S137 {display: none !important;}
     div[class^="viewerBadge_container"] {display: none !important;}
     div[class*="viewerBadge"] {display: none !important;}
     
-    /* 3. Hide header/footer */
+    /* 2. Hide header/footer */
     header {visibility: hidden !important;}
     footer {visibility: hidden !important;}
 </style>
