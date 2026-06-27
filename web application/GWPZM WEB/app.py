@@ -27,10 +27,7 @@ hide_streamlit_ui = """
     header {visibility: hidden !important;}
     #MainMenu {visibility: hidden !important;}
     
-    /* 2. Hide the default Streamlit footer */
-    footer {visibility: hidden !important;}
-    
-    /* 3. Aggressively target the GitHub/Fork viewer badges */
+    /* 2. Aggressively target the GitHub/Fork viewer badges */
     .viewerBadge_container__1QSob {display: none !important;}
     .viewerBadge_link__1S137 {display: none !important;}
     div[class^="viewerBadge_container"] {display: none !important;}
