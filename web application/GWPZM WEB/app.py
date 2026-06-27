@@ -24,19 +24,23 @@ import streamlit as st
 
 import streamlit as st
 
-# --- HIDE GITHUB & FORK ICONS ONLY ---
+# --- ULTIMATE GITHUB / BADGE HIDER ---
 hide_github_icon = """
 <style>
-    /* Aggressively target the GitHub/Fork viewer badges only */
-    .viewerBadge_container__1QSob {display: none !important;}
-    .viewerBadge_link__1S137 {display: none !important;}
-    div[class^="viewerBadge_container"] {display: none !important;}
+    /* 1. Hide the top-right Deploy/GitHub button (new in Streamlit) */
+    .stAppDeployButton {display: none !important;}
+    [data-testid="stAppDeployButton"] {display: none !important;}
+    
+    /* 2. Hide the bottom-right GitHub/Fork viewer badge */
+    [data-testid="stViewerBadge"] {display: none !important;}
+    div[class^="viewerBadge"] {display: none !important;}
     div[class*="viewerBadge"] {display: none !important;}
+    a[class*="viewerBadge"] {display: none !important;}
+    
 </style>
 """
 
 st.markdown(hide_github_icon, unsafe_allow_html=True)
-
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
 # ---------------- TITLE ----------------
