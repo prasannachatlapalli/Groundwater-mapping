@@ -20,18 +20,22 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-# --- FORCE HIDE STREAMLIT UI (Toolbar kept visible) ---
-hide_streamlit_ui = """
+# 1. Configure the sidebar to stay expanded
+st.set_page_config(layout="wide", initial_sidebar_state="expanded")
+
+# 2. CSS to hide only the collapse button (the arrow)
+hide_sidebar_arrow = """
 <style>
-    /* 1. Aggressively target the GitHub/Fork viewer badges */
-    .viewerBadge_container__1QSob {display: none !important;}
-    .viewerBadge_link__1S137 {display: none !important;}
-    div[class^="viewerBadge_container"] {display: none !important;}
-    div[class*="viewerBadge"] {display: none !important;}
+    /* This targets the button container that holds the << arrow */
+    [data-testid="stSidebarCollapse"] {
+        display: none !important;
+    }
 </style>
 """
 
-st.markdown(hide_streamlit_ui, unsafe_allow_html=True)
+st.markdown(hide_sidebar_arrow, unsafe_allow_html=True)
+
+# ... rest of your code ...
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
