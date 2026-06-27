@@ -153,28 +153,28 @@ LAYER_MAPPINGS = {
 
 # ---------------- MAP FILE PATHS ----------------
 MAPS_REGISTRY = {
-    "Rainfall Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\Rainfall map.png",
-    "Soil Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\soil map.png",
-    "Slope Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\Slope map.png",
-    "LULC Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\LULC MAP.png",
-    "Lineament Density Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\Lineament density.png",
-    "Geomorphology Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\Geomorphology.png",
-    "Geology Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\Geology map.png",
-    "Drainage Density Map": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\Drainage density.png"
+    "Rainfall Map": "GWPZM OUTPUT/outputfmt/format/Rainfall map.png",
+    "Soil Map": "GWPZM OUTPUT/outputfmt/format/soil map.png",
+    "Slope Map": "GWPZM OUTPUT/outputfmt/format/Slope map.png",
+    "LULC Map": "GWPZM OUTPUT/outputfmt/format/LULC MAP.png", 
+    "Lineament Density Map": "GWPZM OUTPUT/outputfmt/format/Lineament density.png",
+    "Geomorphology Map": "GWPZM OUTPUT/outputfmt/format/Geomorphology.png",
+    "Geology Map": "GWPZM OUTPUT/outputfmt/format/Geology map.png",
+    "Drainage Density Map": "GWPZM OUTPUT/outputfmt/format/Drainage density.png"
 }
 
-gw_tif_path = r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\web application\GWPZM WEB\tif1.tif"
+gw_tif_path = "GWPZM WEB/tif1.tif"
 
 TIFF_LAYERS_REGISTRY = {
-    "Rainfall": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\Rainfall1.tif",
-    "Geomorphology": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\Geomorphology1.tif",
-    "Geology": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\Geology1.tif",
-    "Lineament Density": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\Lineament Density1.tif",
-    "Drainage Density": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\Drainage Density1.tif",
-    "Slope": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\Slope1.tif",
-    "Soil": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\soil.tif",
-    "LULC": r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\GWPZM OUTPUT\outputfmt\format\tiffs\LULC1.tif"
-}
+    "Rainfall": "GWPZM OUTPUT/outputfmt/format/tiffs/Rainfall1.tif",
+    "Geomorphology": "GWPZM OUTPUT/outputfmt/format/tiffs/Geomorphology1.tif",
+    "Geology": "GWPZM OUTPUT/outputfmt/format/tiffs/Geology1.tif",
+    "Lineament Density": "GWPZM OUTPUT/outputfmt/format/tiffs/Lineament Density1.tif",
+    "Drainage Density": "GWPZM OUTPUT/outputfmt/format/tiffs/Drainage Density1.tif",
+    "Slope": "GWPZM OUTPUT/outputfmt/format/tiffs/Slope1.tif",
+    "Soil": "GWPZM OUTPUT/outputfmt/format/tiffs/soil.tif",
+    "LULC": "GWPZM OUTPUT/outputfmt/format/tiffs/LULC1.tif"
+
 
 # =====================================================================
 # 🔍 LIVE PATH DIAGNOSTICS CONTROL PANEL
