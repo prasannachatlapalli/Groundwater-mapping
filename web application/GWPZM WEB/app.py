@@ -31,6 +31,20 @@ hide_ui_style = """
     .viewerBadge_link__1S137 {display: none !important;}
     div[class^="viewerBadge_container"] {display: none !important;}
     div[class*="viewerBadge"] {display: none !important;}
+    * This removes the collapse arrow button entirely */
+    [data-testid="stSidebarCollapse"] {
+        display: none !important;
+    }
+    
+    /* This prevents the user from clicking the sidebar area to collapse it */
+    [data-testid="stSidebar"] {
+        pointer-events: none !important;
+    }
+    
+    /* This re-enables clicking for the content inside the sidebar so it still works */
+    [data-testid="stSidebar"] div {
+        pointer-events: auto !important;
+    }
 </style>
 """
 
