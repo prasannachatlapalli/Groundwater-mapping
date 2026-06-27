@@ -152,28 +152,37 @@ LAYER_MAPPINGS = {
 }
 
 # ---------------- MAP FILE PATHS ----------------
+from pathlib import Path
+
+# 1. Anchor to the directory where app.py is located
+BASE_DIR = Path(__file__).resolve().parent
+
+# 2. Navigate up two levels to reach the repository root, then into GWPZM OUTPUT
+OUTPUT_DIR = BASE_DIR.parent.parent / "GWPZM OUTPUT"
+
 MAPS_REGISTRY = {
-    "Rainfall Map": "GWPZM OUTPUT/outputfmt/format/Rainfall map.png",
-    "Soil Map": "GWPZM OUTPUT/outputfmt/format/soil map.png",
-    "Slope Map": "GWPZM OUTPUT/outputfmt/format/Slope map.png",
-    "LULC Map": "GWPZM OUTPUT/outputfmt/format/LULC MAP.png", 
-    "Lineament Density Map": "GWPZM OUTPUT/outputfmt/format/Lineament density.png",
-    "Geomorphology Map": "GWPZM OUTPUT/outputfmt/format/Geomorphology.png",
-    "Geology Map": "GWPZM OUTPUT/outputfmt/format/Geology map.png",
-    "Drainage Density Map": "GWPZM OUTPUT/outputfmt/format/Drainage density.png"
+    "Rainfall Map": str(OUTPUT_DIR / "outputfmt/format/Rainfall map.png"),
+    "Soil Map": str(OUTPUT_DIR / "outputfmt/format/soil map.png"),
+    "Slope Map": str(OUTPUT_DIR / "outputfmt/format/Slope map.png"),
+    "LULC Map": str(OUTPUT_DIR / "outputfmt/format/LULC MAP.png"), 
+    "Lineament Density Map": str(OUTPUT_DIR / "outputfmt/format/Lineament density.png"),
+    "Geomorphology Map": str(OUTPUT_DIR / "outputfmt/format/Geomorphology.png"),
+    "Geology Map": str(OUTPUT_DIR / "outputfmt/format/Geology map.png"),
+    "Drainage Density Map": str(OUTPUT_DIR / "outputfmt/format/Drainage density.png")
 }
 
-gw_tif_path = "GWPZM WEB/tif1.tif"
+# 3. tif1.tif is in the same directory as app.py
+gw_tif_path = str(BASE_DIR / "tif1.tif")
 
 TIFF_LAYERS_REGISTRY = {
-    "Rainfall": "GWPZM OUTPUT/outputfmt/format/tiffs/Rainfall1.tif",
-    "Geomorphology": "GWPZM OUTPUT/outputfmt/format/tiffs/Geomorphology1.tif",
-    "Geology": "GWPZM OUTPUT/outputfmt/format/tiffs/Geology1.tif",
-    "Lineament Density": "GWPZM OUTPUT/outputfmt/format/tiffs/Lineament Density1.tif",
-    "Drainage Density": "GWPZM OUTPUT/outputfmt/format/tiffs/Drainage Density1.tif",
-    "Slope": "GWPZM OUTPUT/outputfmt/format/tiffs/Slope1.tif",
-    "Soil": "GWPZM OUTPUT/outputfmt/format/tiffs/soil.tif",
-    "LULC": "GWPZM OUTPUT/outputfmt/format/tiffs/LULC1.tif"
+    "Rainfall": str(OUTPUT_DIR / "outputfmt/format/tiffs/Rainfall1.tif"),
+    "Geomorphology": str(OUTPUT_DIR / "outputfmt/format/tiffs/Geomorphology1.tif"),
+    "Geology": str(OUTPUT_DIR / "outputfmt/format/tiffs/Geology1.tif"),
+    "Lineament Density": str(OUTPUT_DIR / "outputfmt/format/tiffs/Lineament Density1.tif"),
+    "Drainage Density": str(OUTPUT_DIR / "outputfmt/format/tiffs/Drainage Density1.tif"),
+    "Slope": str(OUTPUT_DIR / "outputfmt/format/tiffs/Slope1.tif"),
+    "Soil": str(OUTPUT_DIR / "outputfmt/format/tiffs/soil.tif"),
+    "LULC": str(OUTPUT_DIR / "outputfmt/format/tiffs/LULC1.tif")
 }
 
 # =====================================================================
