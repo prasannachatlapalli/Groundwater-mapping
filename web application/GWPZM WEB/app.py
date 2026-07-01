@@ -20,36 +20,38 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-import streamlit as st
-
 st.markdown(
     """
     <style>
-    /* 1. Hide the top-right toolbar menu (Deploy, Settings, etc.) */
+    /* 1. Hide the right-side toolbar (Deploy button, 3-dots menu, GitHub icon) */
     [data-testid="stToolbar"] {
         display: none !important;
     }
     
-    /* 2. Hide the GitHub/Fork badge if present */
+    /* 2. Hide the GitHub/Fork badge */
     div[class*="viewerBadge"] {
         display: none !important;
     }
 
-    /* 3. Hide only the specific menu icon/buttons in the top-right */
-    /* This targets the 'Main Menu' button specifically */
+    /* 3. Hide the main menu icon (the 3 lines in top right) */
     #MainMenu {
         visibility: hidden !important;
     }
-    
-    /* 4. Ensure the header remains present but clean */
-    /* We keep the height default so the sidebar collapse button isn't displaced */
-    [data-testid="stHeader"] {
-        background-color: transparent !important;
+
+    /* 4. Force the sidebar collapse buttons to be visible 
+       even if the header container is modified */
+    [data-testid="stSidebarCollapseControl"], 
+    [data-testid="collapsedControl"] {
+        visibility: visible !important;
+        display: flex !important;
+        z-index: 999999 !important;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
+
 
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
