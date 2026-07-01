@@ -96,7 +96,7 @@ TIFF_LAYERS_REGISTRY = {
 }
 
 # ---------------- SHAPEFILE PATH ----------------
-village_shp_path = r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\web application\GWPZM WEB\village boundary of medchal\village bundary.shp"
+village_shp_path = r"C:\GWPZM WEB\village boundary of medchal\village bundary.shp"
 
 # ---------------- CORE PROCESSING FUNCTIONS ----------------
 @st.cache_data
@@ -262,7 +262,11 @@ with right_panel:
                     if val is not None and val in LAYER_MAPPINGS.get(active_name, {}).get("classes", {}):
                         text = LAYER_MAPPINGS[active_name]["classes"][val]
                         bg_rgba = LAYER_MAPPINGS[active_name]["colors"][val]
-                        st.markdown(f'<div style="background-color:#{:02x}{:02x}{:02x}; padding:5px; border-radius:5px; margin-bottom:5px; color:{"black" if ((bg_rgba[0]*299 + bg_rgba[1]*587 + bg_rgba[2]*114)/1000) > 125 else "white"};"><b>{active_name}:</b> {text}</div>', unsafe_allow_html=True)
+                        
+                        # --- FIX APPLIED HERE ---
+                        bg_hex = f"#{bg_rgba[0]:02x}{bg_rgba[1]:02x}{bg_rgba[2]:02x}"
+                        text_color = "black" if ((bg_rgba[0]*299 + bg_rgba[1]*587 + bg_rgba[2]*114)/1000) > 125 else "white"
+                        st.markdown(f'<div style="background-color:{bg_hex}; padding:5px; border-radius:5px; margin-bottom:5px; color:{text_color};"><b>{active_name}:</b> {text}</div>', unsafe_allow_html=True)
             else:
                 st.info("Click the map to identify layer zones.")
 
