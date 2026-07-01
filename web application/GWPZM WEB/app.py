@@ -586,17 +586,17 @@ with tab3:
     
     st.subheader("📂 Thematic Layers & Sources")
     st.markdown("""
-    | Dataset | Source | Type / Resolution | Primary Purpose |
-    | :--- | :--- | :--- | :--- |
-    | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
-    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | groundwater recharge assessment |
-    | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
-    | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
-    | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
-    | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
-    | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
-    | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
-    """)
+| Dataset | Source | Type / Resolution | Primary Purpose |
+| :--- | :--- | :--- | :--- |
+| **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
+| **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |
+| **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
+| **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
+| **Geology** | NGDR | Vector | Lithological and aquifer characterization |
+| **Geomorphology** | NGDR | Vector | Landform and structural analysis |
+| **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
+| **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
+""")
 
     st.subheader("⚙️ Analytical Processing (AHP)")
     
