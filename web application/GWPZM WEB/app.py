@@ -21,8 +21,6 @@ import plotly.express as px
 import pandas as pd
 
 
-
-
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
 # ---------------- TITLE ----------------
@@ -562,25 +560,29 @@ with tab2:
 # ... (Previous code for tab2) ...
 
  with tab3:
-        st.header("📄 Data Sources & Methodology")
-        st.markdown("""
-        This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach. The primary datasets     were sourced based on their spatial resolution, temporal relevance, and scientific authenticity.
+    st.header("📄 Data Sources & Methodology")
+    st.markdown("""
+    This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach. 
+    The primary datasets were sourced based on their spatial resolution, temporal relevance, and scientific authenticity.
 
-        ### 🗂️ Thematic Layers & Sources
-        | Dataset | Source | Type / Resolution | Primary Purpose |
-        | :--- | :--- | :--- | :--- |
-        | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
-        | **LULC** | Bhoonidhi (LISS-IV) | Vector/Raster | Surface runoff and recharge evaluation |
-        | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
-        | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
-        | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
-        | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
-        | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
-        | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
-        """)
-       
-    ### ⚙️ Analytical Processing (AHP)
+    ### 🗂️ Thematic Layers & Sources
+    | Dataset | Source | Type / Resolution | Primary Purpose |
+    | :--- | :--- | :--- | :--- |
+    | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
+    | **LULC** | Bhoonidhi (LISS-IV) | Vector/Raster | Surface runoff and recharge evaluation |
+    | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
+    | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
+    | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
+    | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
+    | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
+    | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
+    """)
+    
+    st.subheader("⚙️ Analytical Processing (AHP)")
+    st.markdown("""
     The individual thematic layers were processed in a GIS environment. We utilized **Saaty’s Analytical Hierarchy Process (AHP)** to calculate the normalized weights for each layer based on their relative importance to groundwater occurrence. 
     
     The final Groundwater Potential Index (GWPI) was calculated using a Weighted Overlay Analysis, classifying the region into five distinct zones ranging from **Very Low** to **Very High**.
     """)
+    
+    st.latex(r"GWPI = \sum_{i=1}^{n} (W_i \times R_i)")
