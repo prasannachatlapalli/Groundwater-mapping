@@ -20,39 +20,41 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-# ... your st.set_page_config() if you have one ...
+import streamlit as st
 
 hide_icons_css = """
 <style>
-/* 1. Hide the Streamlit right-side toolbar (Deploy button, 3 dots menu) */
+/* 1. Hide the right-side toolbar (Deploy button, 3 dots menu) */
 [data-testid="stToolbar"] {
     display: none !important;
 }
 
-/* 2. Hide the GitHub/Fork badge using a wildcard selector (works even if Streamlit changes the class name) */
+/* 2. Hide the GitHub/Fork badge */
 div[class*="viewerBadge"] {
     display: none !important;
 }
 
-/* 3. Make the top header transparent so it doesn't block the screen or your sidebar */
-header[data-testid="stHeader"] {
+/* 3. Make the top header transparent */
+[data-testid="stHeader"] {
     background: transparent !important;
     box-shadow: none !important;
 }
 
-/* 4. Move the left sidebar arrow down slightly so it doesn't overlap with the top */
+/* 4. Move the CLOSE arrow (<<) inside the sidebar */
 [data-testid="stSidebarHeader"] {
     padding-top: 50px !important; 
 }
+
+/* 5. Force the OPEN arrow (>) to stay visible and move it down */
 [data-testid="collapsedControl"] {
-    top: 50px !important; 
+    transform: translateY(50px) !important; /* Safely shifts it down */
+    z-index: 999999 !important; /* Forces it to the very front */
+    display: flex !important; /* Guarantees it doesn't get hidden */
 }
 </style>
 """
 
 st.markdown(hide_icons_css, unsafe_allow_html=True)
-
-# ... the rest of your app code below ...
 
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
