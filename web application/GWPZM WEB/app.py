@@ -20,14 +20,12 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-import streamlit as st
-
 st.markdown(
     """
     <style>
-    /* 1. Hide the right-side icons (Deploy, GitHub, etc.) */
+    /* 1. Hide the Toolbar icons (Deploy, GitHub, Fork) */
     [data-testid="stToolbar"] {
-        display: none !important;
+        visibility: hidden !important;
     }
     
     /* 2. Hide the GitHub/Fork badge */
@@ -35,21 +33,31 @@ st.markdown(
         display: none !important;
     }
 
-    /* 3. Ensure the Sidebar stays open-able but we control the button */
-    /* This targets the close button (<<) inside the sidebar */
-    [data-testid="stSidebarCollapseControl"] {
-        position: absolute !important;
-        top: 20px !important;
-        left: 10px !important;
-        z-index: 999999 !important;
+    /* 3. Make the header transparent and keep it active */
+    [data-testid="stHeader"] {
+        background: transparent !important;
+        box-shadow: none !important;
+        height: 0 !important; /* Flatten the header to remove empty space */
+        min-height: 0 !important;
     }
 
-    /* This targets the open button (>) when the sidebar is hidden */
-    [data-testid="collapsedControl"] {
+    /* 4. Ensure Sidebar Controls are always visible and actionable */
+    /* This handles the << (close) button */
+    [data-testid="stSidebarCollapseControl"] {
         position: fixed !important;
-        top: 20px !important;
+        top: 10px !important;
         left: 10px !important;
         z-index: 999999 !important;
+        visibility: visible !important;
+    }
+
+    /* This handles the > (open) button */
+    [data-testid="collapsedControl"] {
+        position: fixed !important;
+        top: 10px !important;
+        left: 10px !important;
+        z-index: 999999 !important;
+        visibility: visible !important;
         background: transparent !important;
     }
     </style>
