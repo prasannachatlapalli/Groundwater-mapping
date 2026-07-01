@@ -20,37 +20,7 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-st.markdown(
-    """
-    <style>
-    /* 1. Hide the right-side toolbar (Deploy/GitHub/etc.) */
-    [data-testid="stToolbar"] {
-        display: none !important;
-    }
-    
-    /* 2. Hide the Viewer Badge container */
-    div[class*="viewerBadge"] {
-        display: none !important;
-    }
 
-    /* 3. Force the Sidebar Open button (>) to be visible at all times */
-    [data-testid="collapsedControl"] {
-        display: flex !important;
-        position: fixed !important;
-        top: 10px !important;
-        left: 10px !important;
-        z-index: 999999 !important;
-        visibility: visible !important;
-    }
-
-    /* 4. Ensure the Close button (<<) is visible inside the sidebar */
-    [data-testid="stSidebarCollapseControl"] {
-        z-index: 999999 !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
