@@ -119,9 +119,19 @@ def create_hover_polygons(filepath, classes_mapping, scale_factor=0.05):
         r_data = src.read(1, out_shape=(new_h, new_w), resampling=Resampling.nearest)
         transform = rasterio.transform.from_bounds(src.bounds.left, src.bounds.bottom, src.bounds.right, src.bounds.top, new_w, new_h)
         shape_gen = shapes(r_data.astype(np.int32), mask=r_data>0, transform=transform)
+        
+        # Create GeoDataFrame
         gdf = gpd.GeoDataFrame.from_features([{'properties': {'raster_val': int(v)}, 'geometry': s} for s, v in shape_gen], crs=src.crs)
         gdf['Class_Name'] = gdf['raster_val'].map(classes_mapping).fillna("Unknown Class")
-        return gdf.to_crs(epsg=4326).simplify(0.01)
+        
+        # --- THE FIX ---
+        # 1. Reproject to standard Web Mercator
+        gdf = gdf.to_crs(epsg=4326)
+        
+        # 2. Simplify ONLY the geometry column so we don't lose 'Class_Name'
+        gdf.geometry = gdf.geometry.simplify(0.01)
+        
+        return gdf
 
 hover_gdf_gw = create_hover_polygons(gw_tif_path, LAYER_MAPPINGS["Groundwater Potential"]["classes"])
 
