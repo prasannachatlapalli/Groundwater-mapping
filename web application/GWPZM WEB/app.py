@@ -20,10 +20,12 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
+import streamlit as st
+
 st.markdown(
     """
     <style>
-    /* 1. Hide only the right-side icons (Deploy, GitHub, etc.) */
+    /* 1. Hide the toolbar items (Deploy/GitHub/etc.) */
     [data-testid="stToolbar"] {
         display: none !important;
     }
@@ -33,25 +35,29 @@ st.markdown(
         display: none !important;
     }
 
-    /* 3. Keep the header visible but transparent so the arrow stays */
+    /* 3. Ensure the header container exists so the arrow has a home */
     [data-testid="stHeader"] {
         background: transparent !important;
         box-shadow: none !important;
-        /* Ensure the height is enough to show the arrow */
-        height: 50px !important; 
+        height: 3rem !important;
     }
 
-    /* 4. Position the CLOSE arrow (<<) */
-    [data-testid="stSidebarHeader"] {
-        padding-top: 10px !important; /* Adjust if it's too high */
+    /* 4. Force the arrow button to be visible and functional */
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 15px !important;
+        left: 10px !important;
+        z-index: 999999 !important;
+        pointer-events: auto !important;
+        background-color: transparent !important;
     }
     
-    /* 5. Position the OPEN arrow (>) - the fix is here */
-    [data-testid="collapsedControl"] {
-        position: fixed !important;
-        top: 10px !important;      /* Moves it down from the very top */
-        left: 10px !important;     /* Keeps it in the corner */
-        z-index: 999999 !important;
+    /* 5. Force the internal icon inside the button to be visible */
+    [data-testid="collapsedControl"] button {
+        visibility: visible !important;
         display: flex !important;
     }
     </style>
