@@ -20,45 +20,6 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-st.markdown(
-    """
-    <style>
-    /* 1. Hide the right-side toolbar and menu items */
-    [data-testid="stToolbar"] {
-        display: none !important;
-    }
-    
-    /* 2. Hide the GitHub/Fork badge */
-    div[class*="viewerBadge"] {
-        display: none !important;
-    }
-
-    /* 3. Hide the main Streamlit menu icon */
-    #MainMenu {
-        visibility: hidden !important;
-    }
-
-    /* 4. PIN the Sidebar Arrow so it stays visible even if the header is hidden */
-    /* This handles the '>>' button when closed */
-    [data-testid="collapsedControl"] {
-        position: fixed !important;
-        top: 50px !important;    /* Adjust this value to move it down */
-        left: 10px !important;   /* Keeps it on the left */
-        z-index: 999999 !important;
-        display: flex !important;
-        visibility: visible !important;
-    }
-
-    /* 5. Handle the '<<' button when the sidebar is open */
-    [data-testid="stSidebarCollapseControl"] {
-        position: absolute !important;
-        top: 30px !important;    /* Adjust this to move the close arrow down */
-        z-index: 999999 !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 
 
