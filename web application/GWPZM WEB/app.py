@@ -20,21 +20,27 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-hide_github_badge = """
-<style>
-    /* This targets the GitHub/Fork badge specifically */
-    .viewerBadge_container__1QSob,
-    .viewerBadge_link__1S137,
-    div[class^="viewerBadge_container"],
-    div[class*="viewerBadge"] {
-        display: none !important;
-     }
-</style>
-"""
+# Inject custom CSS to move the sidebar toggle arrows down
+st.markdown(
+    """
+    <style>
+    /* 1. Moves the close arrow (<<) inside the open sidebar down */
+    [data-testid="stSidebarHeader"] {
+        padding-top: 60px !important; 
+    }
+    
+    /* 2. Moves the open arrow (>) when the sidebar is collapsed down */
+    [data-testid="collapsedControl"] {
+        top: 60px !important; 
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-st.markdown(hide_github_badge, unsafe_allow_html=True)
+# ... your existing code continues below ...
 
-# ---> Your app content follows below <---
+
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
 
