@@ -175,6 +175,9 @@ MAPS_REGISTRY = {
 # 3. tif1.tif is in the same directory as app.py
 gw_tif_path = str(BASE_DIR / "tif1.tif")
 
+# --- NEW: Added GeoJSON Path for Villages ---
+village_geojson_path = str(OUTPUT_DIR / "outputfmt/format/village boundary.geojson")
+
 TIFF_LAYERS_REGISTRY = {
     "Rainfall": str(OUTPUT_DIR / "outputfmt/format/tiffs/Rainfall1.tif"),
     "Geomorphology": str(OUTPUT_DIR / "outputfmt/format/tiffs/Geomorphology1.tif"),
@@ -380,15 +383,18 @@ for layer_name in TIFF_LAYERS_REGISTRY.keys():
             st.sidebar.error(f"⚠️ {layer_name} file not found.")
 
 st.sidebar.markdown("---")
+# --- NEW: Added Toggle Checkbox in Sidebar ---
+show_villages = st.sidebar.checkbox("Show Village Boundaries", value=True)
 global_opacity = st.sidebar.slider("Global Layer Opacity", min_value=0.0, max_value=1.0, value=0.8, step=0.1)
+
 
 # ---------------- MAP MODULE ----------------
 @st.fragment
-def interactive_map_module(details_target, active_layers_dict, opacity_gw):
-    # ... (Keep existing map initialization code here) ...
+# --- NEW: Added show_villages_flag to function arguments ---
+def interactive_map_module(details_target, active_layers_dict, opacity_gw, show_villages_flag=False):
+    
     m = folium.Map(location=[center_lat, center_lon], zoom_start=11, tiles="https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", attr="Google Satellite")
 
-    # ... (Keep existing layer and hover logic here) ...
     for layer_name, layer_info in active_layers_dict.items():
         if layer_info["url"] and layer_info["bounds"]:
             trans = Transformer.from_crs(layer_info["crs"], "EPSG:4326", always_xy=True)
@@ -413,6 +419,21 @@ def interactive_map_module(details_target, active_layers_dict, opacity_gw):
                         style="background-color: white; padding: 6px; border-radius: 4px; font-weight: bold;"
                     )
                 ).add_to(m)
+
+    # --- NEW: GeoJSON Layer Integration ---
+    if show_villages_flag and os.path.exists(village_geojson_path):
+        folium.GeoJson(
+            village_geojson_path,
+            name="Village Boundaries",
+            style_function=lambda x: {
+                'fillColor': '#ffffff',  
+                'fillOpacity': 0.0,      
+                'color': '#000000',      
+                'weight': 1.5,           
+                'opacity': 1.0           
+            }
+        ).add_to(m)
+    # --------------------------------------
 
     map_data = st_folium(m, width=1200, height=550, returned_objects=["last_clicked"], key="gw_portal_map")
 
@@ -443,7 +464,6 @@ def interactive_map_module(details_target, active_layers_dict, opacity_gw):
                     </div>
                 """, unsafe_allow_html=True)
                 
-                # --- (Rest of your pixel value lookup code remains below) ---
                 def get_pixel_value(t_data, t_trans, t_crs, target_lat, target_lon):
                     try:
                         transformer_back = Transformer.from_crs("EPSG:4326", t_crs, always_xy=True)
@@ -456,7 +476,6 @@ def interactive_map_module(details_target, active_layers_dict, opacity_gw):
                         return None
 
                 for active_name in active_layers_dict.keys():
-                    # ... (Keep your existing loop for values) ...
                     if active_name == "Groundwater Potential":
                         val = get_pixel_value(data, raster_transform, crs_string, lat, lon)
                     else:
@@ -480,12 +499,14 @@ def interactive_map_module(details_target, active_layers_dict, opacity_gw):
             else:
                 st.info("Click a point on the map to see its class value.")
 
+
 # ---------------- DASHBOARD UI TABS ----------------
 tab1, tab2, tab3 = st.tabs(["💧 Interactive Portal", "🖼️ Maps Gallery", "📄 Data Information"])
 
 with tab1:
     st.markdown("#### ⚙️ Map Viewer")
-    interactive_map_module(details_placeholder, active_layers, global_opacity)
+    # --- NEW: Passed show_villages variable here ---
+    interactive_map_module(details_placeholder, active_layers, global_opacity, show_villages)
 
     st.markdown("---")
     st.subheader("📊 Spatial Attribute Statistics")
@@ -535,6 +556,7 @@ with tab1:
                     hide_index=True
                 )
 
+
 with tab2:
     st.subheader("🖼️ Static Maps Inventory Gallery")
     st.markdown("Browse and review the static cartographic maps of Medchal-Malkajgiri District.")
@@ -556,10 +578,10 @@ with tab2:
                 name2, path2 = gallery_maps[i+1]
                 if os.path.exists(path2):
                     st.image(path2, caption=name2, use_container_width=True)
-                else: st.error(f"⚠️ Image file missing: `{name2}`")
-# ... (Previous code for tab2) ...
+                else: 
+                    st.error(f"⚠️ Image file missing: `{name2}`")
 
- 
+
 with tab3:
     st.header("📄 Data Sources & Methodology")
     st.markdown("""
