@@ -583,20 +583,15 @@ with tab3:
     st.header("📄 Data Sources & Methodology")
     
     st.write("This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach. The primary datasets were sourced based on their spatial resolution, temporal relevance, and scientific authenticity.")
-    
-    st.subheader("📂 Thematic Layers & Sources")
-    st.markdown("""
-| Dataset | Source | Type / Resolution | Primary Purpose |
-| :--- | :--- | :--- | :--- |
-| **DEM** | Bhoonidhi Geoportal | 30 m Raster | Terrain, slope, and drainage analysis |
-| **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |
-| **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
-| **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
-| **Geology** | NGDR | Vector | Lithological and aquifer characterization |
-| **Geomorphology** | NGDR | Vector | Landform and structural analysis |
-| **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
-| **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
-""")
-
-
+    ### 🗂️ Thematic Layers & Sources
+    | Dataset | Source | Type / Resolution | Primary Purpose |
+    | :--- | :--- | :--- | :--- |
+    | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
+    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |
+    | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
+    | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
+    | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
+    | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
+    | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
+    | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
   
