@@ -28,6 +28,13 @@ hide_github_badge = """
     div[class^="viewerBadge_container"],
     div[class*="viewerBadge"] {
         display: none !important;
+           
+# 1. Add some blank space at the very top of the sidebar to push content down
+st.sidebar.markdown("<br><br><br>", unsafe_allow_html=True)
+
+# 2. Your existing sidebar code follows...
+st.sidebar.write("📍 **Clicked Location Details**")
+# ... rest of your sidebar widgets ...
     }
 </style>
 """
