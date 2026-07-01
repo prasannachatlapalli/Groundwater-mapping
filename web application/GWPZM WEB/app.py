@@ -570,7 +570,7 @@ with tab3:
     | Dataset | Source | Type / Resolution | Primary Purpose |
     | :--- | :--- | :--- | :--- |
     | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
-    | **LULC** | Bhoonidhi (LISS-IV) | Vector/Raster | Surface runoff and recharge evaluation |
+    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |
     | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
     | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
     | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
