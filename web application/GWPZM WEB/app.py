@@ -23,31 +23,18 @@ import pandas as pd
 st.markdown(
     """
     <style>
-    /* 1. Hides the GitHub badge and Deploy button menu only */
+    /* 1. Hide the top-right toolbar (Deploy, Menu) */
     [data-testid="stToolbar"] {
         display: none !important;
     }
     
-    /* 2. Hide the Viewer Badge container */
+    /* 2. Hide the GitHub/Fork badge */
     div[class*="viewerBadge"] {
         display: none !important;
     }
 
-    /* 3. Keep the header area but make it invisible/empty */
-    [data-testid="stHeader"] {
-        background-color: transparent !important;
-        height: 0 !important;
-    }
-
-    /* 4. Force the arrow button to be permanently visible */
-    [data-testid="collapsedControl"] {
-        display: flex !important;
-        visibility: visible !important;
-        position: fixed !important;
-        left: 10px !important;
-        top: 10px !important;
-        z-index: 9999999 !important;
-    }
+    /* 3. Ensure the Sidebar control buttons (<< and >) remain functional and visible */
+    /* We do NOT touch the stHeader or the collapse controls to keep them active */
     </style>
     """,
     unsafe_allow_html=True,
