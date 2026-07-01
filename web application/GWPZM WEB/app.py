@@ -20,16 +20,33 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-# Inject custom CSS to move the sidebar toggle arrows down
 st.markdown(
     """
     <style>
-    /* 1. Moves the close arrow (<<) inside the open sidebar down */
+    /* 1. Hides the GitHub/Fork badge */
+    .viewerBadge_container__1QSob,
+    .styles_viewerBadge__1yB5_,
+    .viewerBadge_link__1S137,
+    .viewerBadge_text__1JaDK {
+        display: none !important;
+    }
+    
+    /* 2. Hides the main right-side header (Deploy button, hamburger menu) */
+    header[data-testid="stHeader"] {
+        background: transparent !important; /* Removes the background color */
+    }
+    
+    /* Specifically hide the items INSIDE the header (like deploy button) */
+    header[data-testid="stHeader"] .st-emotion-cache-18ni7ap { 
+        display: none !important;
+    }
+
+    /* 3. Moves the close arrow (<<) inside the open sidebar down */
     [data-testid="stSidebarHeader"] {
         padding-top: 60px !important; 
     }
     
-    /* 2. Moves the open arrow (>) when the sidebar is collapsed down */
+    /* 4. Moves the open arrow (>) when the sidebar is collapsed down */
     [data-testid="collapsedControl"] {
         top: 60px !important; 
     }
@@ -37,9 +54,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# ... your existing code continues below ...
-
 
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
