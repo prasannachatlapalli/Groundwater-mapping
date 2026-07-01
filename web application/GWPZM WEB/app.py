@@ -579,9 +579,19 @@ with tab3:
 | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
 | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
     
-    ### ⚙️ Analytical Processing (AHP)
-    The individual thematic layers were processed in a GIS environment. We utilized **Saaty’s Analytical Hierarchy Process (AHP)** to calculate the normalized weights for each layer based on their relative importance to groundwater occurrence. 
-    
-    The final Groundwater Potential Index (GWPI) was calculated using a Weighted Overlay Analysis, classifying the region into five distinct zones ranging from **Very Low** to **Very High**.
+  ### ⚙️ Analytical Processing (AHP)
+    The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors influencing groundwater occurrence, including geology, geomorphology, slope, drainage density, lineament density, land use/land cover (LULC), rainfall, and soil, were considered in the analysis. 
+
+    Saaty's Analytical Hierarchy Process (AHP) was utilized to assign normalized weights to the thematic layers according to their relative influence on groundwater occurrence. Each thematic layer was reclassified into suitability classes, and ranks were assigned based on their contribution to groundwater recharge and storage potential.
+
+    ### ⚙️ Automated Weighted Overlay
+    The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the Groundwater Potential Index (GWPI) using a weighted summation approach: 
+
+    $$GWPI = \sum (W_i \times R_i)$$
+
+    Where:
+    * $W_i$ = Weight assigned to each thematic layer
+    * $R_i$ = Rank assigned to each class within the layer
+
+    The resulting Groundwater Potential Index was classified into five categories: **Very Low, Low, Moderate, High, and Very High**. These classes represent varying levels of groundwater potential across the study area and provide valuable information for groundwater exploration, recharge planning, and sustainable water resource management.
     """)
-    
