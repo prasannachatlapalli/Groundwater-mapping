@@ -559,7 +559,8 @@ with tab2:
                 else: st.error(f"⚠️ Image file missing: `{name2}`")
 # ... (Previous code for tab2) ...
 
- with tab3:
+ 
+with tab3:
     st.header("📄 Data Sources & Methodology")
     st.markdown("""
     This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach. 
