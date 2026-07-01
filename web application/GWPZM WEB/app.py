@@ -25,40 +25,27 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* 1. Hide the toolbar items (Deploy/GitHub/etc.) */
-    [data-testid="stToolbar"] {
-        display: none !important;
+    /* 1. Make the top header invisible to the eye, but keep its structure */
+    [data-testid="stHeader"] {
+        background-color: transparent !important;
+        box-shadow: none !important;
     }
     
-    /* 2. Hide the GitHub/Fork badge */
+    /* 2. Instead of 'display: none', we make the icons transparent/unclickable */
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+    }
+
+    /* 3. Hide the GitHub/Fork badge */
     div[class*="viewerBadge"] {
         display: none !important;
     }
 
-    /* 3. Ensure the header container exists so the arrow has a home */
-    [data-testid="stHeader"] {
-        background: transparent !important;
-        box-shadow: none !important;
-        height: 3rem !important;
-    }
-
-    /* 4. Force the arrow button to be visible and functional */
+    /* 4. Move the sidebar arrow down safely */
     [data-testid="collapsedControl"] {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: fixed !important;
-        top: 15px !important;
+        top: 40px !important;
         left: 10px !important;
         z-index: 999999 !important;
-        pointer-events: auto !important;
-        background-color: transparent !important;
-    }
-    
-    /* 5. Force the internal icon inside the button to be visible */
-    [data-testid="collapsedControl"] button {
-        visibility: visible !important;
-        display: flex !important;
     }
     </style>
     """,
