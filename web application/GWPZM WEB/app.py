@@ -588,7 +588,7 @@ with tab3:
     st.markdown("""
 | Dataset | Source | Type / Resolution | Primary Purpose |
 | :--- | :--- | :--- | :--- |
-| **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
+| **DEM** | Bhoonidhi Geoportal | 30 m Raster | Terrain, slope, and drainage analysis |
 | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |
 | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
 | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
