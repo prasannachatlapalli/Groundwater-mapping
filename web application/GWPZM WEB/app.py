@@ -579,7 +579,27 @@ with tab3:
 | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
 | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
     
-st.subheader("⚙️ Analytical Processing (AHP)")
+with tab3:
+    st.header("📄 Data Sources & Methodology")
+    
+    st.write("This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach. The primary datasets were sourced based on their spatial resolution, temporal relevance, and scientific authenticity.")
+    
+    st.subheader("📂 Thematic Layers & Sources")
+    st.markdown("""
+    | Dataset | Source | Type / Resolution | Primary Purpose |
+    | :--- | :--- | :--- | :--- |
+    | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
+    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | groundwater recharge assessment |
+    | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
+    | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
+    | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
+    | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
+    | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
+    | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
+    """)
+
+    st.subheader("⚙️ Analytical Processing (AHP)")
+    
     st.write("""
     The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors influencing groundwater occurrence, including geology, geomorphology, slope, drainage density, lineament density, land use/land cover (LULC), rainfall, and soil, were considered in the analysis. 
     
@@ -590,6 +610,7 @@ st.subheader("⚙️ Analytical Processing (AHP)")
     st.write("""
     The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the Groundwater Potential Index (GWPI) using a weighted summation approach:
     """)
+    
     
     st.latex(r"GWPI = \sum (W_i \times R_i)")
     
