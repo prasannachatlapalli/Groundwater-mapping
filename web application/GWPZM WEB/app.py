@@ -23,18 +23,30 @@ import pandas as pd
 st.markdown(
     """
     <style>
-    /* 1. Hide the top-right toolbar (Deploy, Menu) */
+    /* 1. Hide the right-side toolbar (Deploy/GitHub/etc.) */
     [data-testid="stToolbar"] {
         display: none !important;
     }
     
-    /* 2. Hide the GitHub/Fork badge */
+    /* 2. Hide the Viewer Badge container */
     div[class*="viewerBadge"] {
         display: none !important;
     }
 
-    /* 3. Ensure the Sidebar control buttons (<< and >) remain functional and visible */
-    /* We do NOT touch the stHeader or the collapse controls to keep them active */
+    /* 3. Force the Sidebar Open button (>) to be visible at all times */
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        position: fixed !important;
+        top: 10px !important;
+        left: 10px !important;
+        z-index: 999999 !important;
+        visibility: visible !important;
+    }
+
+    /* 4. Ensure the Close button (<<) is visible inside the sidebar */
+    [data-testid="stSidebarCollapseControl"] {
+        z-index: 999999 !important;
+    }
     </style>
     """,
     unsafe_allow_html=True,
