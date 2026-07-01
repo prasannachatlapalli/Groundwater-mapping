@@ -582,16 +582,31 @@ with tab3:
 with tab3:
     st.header("📄 Data Sources & Methodology")
     
-    st.write("This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach. The primary datasets were sourced based on their spatial resolution, temporal relevance, and scientific authenticity.")
-    ### 🗂️ Thematic Layers & Sources
+    st.markdown("""
+    This portal facilitates the identification of Groundwater Potential Zones (GWPZ) through an integrated **Multi-Criteria Decision Making (MCDM)** approach, leveraging high-resolution remote sensing and environmental datasets.
+
+    ### 🗂️ Thematic Layers & Dataset Specifications
     | Dataset | Source | Type / Resolution | Primary Purpose |
     | :--- | :--- | :--- | :--- |
     | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
-    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |
+    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Surface runoff, groundwater recharge assessment |
     | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
     | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
     | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
     | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
     | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
     | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
-  
+    
+    ### ⚙️ Analytical Methodology
+    The GWPZ mapping utilizes the **Analytical Hierarchy Process (AHP)** to prioritize datasets based on their relative hydrogeological significance. 
+
+    1. **Standardization**: All thematic layers are reclassified into a uniform ranking scale (1–5) to enable cross-variable comparison.
+    2. **AHP Weighting**: Saaty’s AHP technique is applied to derive objective weights. We establish a **Pairwise Comparison Matrix** to determine the hierarchy, ensuring a **Consistency Ratio (CR) < 0.10** for valid, logical decision-making.
+    3. **Weighted Overlay Integration**: The **Groundwater Potential Index (GWPI)** is computed using a linear summation of weighted inputs:
+    
+    $$GWPI = \sum_{i=1}^{n} (W_i \times X_i)$$
+    
+    *Where $W_i$ represents the normalized weight and $X_i$ the reclassified rank for each respective theme.* 
+
+    4. **Spatial Classification**: The final index is categorized into five susceptibility classes—**Very Low to Very High**—applying the **Natural Breaks (Jenks) classification method** to optimize the spatial clustering of potential groundwater zones.
+    """)
