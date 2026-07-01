@@ -96,8 +96,7 @@ TIFF_LAYERS_REGISTRY = {
 }
 
 # ---------------- SHAPEFILE PATH ----------------
-village_shp_path = r"C:\GWPZM WEB\village boundary of medchal\village bundary.shp"
-
+village_shp_path = str(OUTPUT_DIR / "outputfmt/format/village boundary of medchal/village bundary.shp")
 # ---------------- CORE PROCESSING FUNCTIONS ----------------
 @st.cache_data
 def load_raster_data(filepath):
@@ -323,4 +322,6 @@ with right_panel:
         
         The final Groundwater Potential Index (GWPI) was calculated using a Weighted Overlay Analysis, classifying the region into five distinct zones ranging from **Very Low** to **Very High**.
         """)
+        
+        # LaTeX Equation added here
         st.latex(r"GWPI = \sum_{i=1}^{n} (W_i \times R_i)")
