@@ -20,40 +20,39 @@ import geopandas as gpd
 import plotly.express as px
 import pandas as pd
 
-st.markdown(
-    """
-    <style>
-    /* 1. Hides the GitHub/Fork badge */
-    .viewerBadge_container__1QSob,
-    .styles_viewerBadge__1yB5_,
-    .viewerBadge_link__1S137,
-    .viewerBadge_text__1JaDK {
-        display: none !important;
-    }
-    
-    /* 2. Hides the main right-side header (Deploy button, hamburger menu) */
-    header[data-testid="stHeader"] {
-        background: transparent !important; /* Removes the background color */
-    }
-    
-    /* Specifically hide the items INSIDE the header (like deploy button) */
-    header[data-testid="stHeader"] .st-emotion-cache-18ni7ap { 
-        display: none !important;
-    }
+# ... your st.set_page_config() if you have one ...
 
-    /* 3. Moves the close arrow (<<) inside the open sidebar down */
-    [data-testid="stSidebarHeader"] {
-        padding-top: 60px !important; 
-    }
-    
-    /* 4. Moves the open arrow (>) when the sidebar is collapsed down */
-    [data-testid="collapsedControl"] {
-        top: 60px !important; 
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+hide_icons_css = """
+<style>
+/* 1. Hide the Streamlit right-side toolbar (Deploy button, 3 dots menu) */
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+/* 2. Hide the GitHub/Fork badge using a wildcard selector (works even if Streamlit changes the class name) */
+div[class*="viewerBadge"] {
+    display: none !important;
+}
+
+/* 3. Make the top header transparent so it doesn't block the screen or your sidebar */
+header[data-testid="stHeader"] {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 4. Move the left sidebar arrow down slightly so it doesn't overlap with the top */
+[data-testid="stSidebarHeader"] {
+    padding-top: 50px !important; 
+}
+[data-testid="collapsedControl"] {
+    top: 50px !important; 
+}
+</style>
+"""
+
+st.markdown(hide_icons_css, unsafe_allow_html=True)
+
+# ... the rest of your app code below ...
 
 
 st.set_page_config(layout="wide", page_title="Groundwater Potential Zone mapping of Medchal-Malkajgiri District")
