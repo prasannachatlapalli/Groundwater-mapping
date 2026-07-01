@@ -25,27 +25,32 @@ import streamlit as st
 st.markdown(
     """
     <style>
-    /* 1. Make the top header invisible to the eye, but keep its structure */
-    [data-testid="stHeader"] {
-        background-color: transparent !important;
-        box-shadow: none !important;
+    /* 1. Hide the right-side icons (Deploy, GitHub, etc.) */
+    [data-testid="stToolbar"] {
+        display: none !important;
     }
     
-    /* 2. Instead of 'display: none', we make the icons transparent/unclickable */
-    [data-testid="stToolbar"] {
-        visibility: hidden !important;
-    }
-
-    /* 3. Hide the GitHub/Fork badge */
+    /* 2. Hide the GitHub/Fork badge */
     div[class*="viewerBadge"] {
         display: none !important;
     }
 
-    /* 4. Move the sidebar arrow down safely */
-    [data-testid="collapsedControl"] {
-        top: 40px !important;
+    /* 3. Ensure the Sidebar stays open-able but we control the button */
+    /* This targets the close button (<<) inside the sidebar */
+    [data-testid="stSidebarCollapseControl"] {
+        position: absolute !important;
+        top: 20px !important;
         left: 10px !important;
         z-index: 999999 !important;
+    }
+
+    /* This targets the open button (>) when the sidebar is hidden */
+    [data-testid="collapsedControl"] {
+        position: fixed !important;
+        top: 20px !important;
+        left: 10px !important;
+        z-index: 999999 !important;
+        background: transparent !important;
     }
     </style>
     """,
