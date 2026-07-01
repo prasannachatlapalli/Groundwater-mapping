@@ -582,31 +582,34 @@ with tab3:
 with tab3:
     st.header("📄 Data Sources & Methodology")
     
-    st.markdown("""
-    This portal facilitates the identification of Groundwater Potential Zones (GWPZ) through an integrated **Multi-Criteria Decision Making (MCDM)** approach, leveraging high-resolution remote sensing and environmental datasets.
-
-    ### 🗂️ Thematic Layers & Dataset Specifications
-    | Dataset | Source | Type / Resolution | Primary Purpose |
-    | :--- | :--- | :--- | :--- |
-    | **DEM** | Bhoonidhi Geoportal | 30m Raster | Terrain, slope, and drainage analysis |
-    | **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Surface runoff, groundwater recharge assessment |
-    | **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |
-    | **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |
-    | **Geology** | NGDR | Vector | Lithological and aquifer characterization |
-    | **Geomorphology** | NGDR | Vector | Landform and structural analysis |
-    | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
-    | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
+    st.markdown("This WebGIS portal maps Groundwater Potential Zones using a Multi-Criteria Decision Making (MCDM) approach.")
     
-    ### ⚙️ Analytical Methodology
-    The GWPZ mapping utilizes the **Analytical Hierarchy Process (AHP)** to prioritize datasets based on their relative hydrogeological significance. 
+    st.subheader("📂 Thematic Layers & Sources")
+    # Using individual markdown calls for each table row to avoid syntax errors
+    st.markdown("| Dataset | Source | Type / Resolution | Primary Purpose |")
+    st.markdown("| :--- | :--- | :--- | :--- |")
+    st.markdown("| **DEM** | Bhoonidhi Geoportal | 30 m Raster | Terrain, slope, and drainage analysis |")
+    st.markdown("| **Surface Cover** | Bhoonidhi (LISS-IV) | Raster | Groundwater recharge assessment |")
+    st.markdown("| **Rainfall** | IMD | Annual Data | Groundwater recharge estimation |")
+    st.markdown("| **Soil** | SoilGrids | Raster | Soil texture and infiltration capacity |")
+    st.markdown("| **Geology** | NGDR | Vector | Lithological and aquifer characterization |")
+    st.markdown("| **Geomorphology** | NGDR | Vector | Landform and structural analysis |")
+    st.markdown("| **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |")
+    st.markdown("| **Drainage** | Derived from DEM | Vector | Runoff and stream network density |")
 
-    1. **Standardization**: All thematic layers are reclassified into a uniform ranking scale (1–5) to enable cross-variable comparison.
-    2. **AHP Weighting**: Saaty’s AHP technique is applied to derive objective weights. We establish a **Pairwise Comparison Matrix** to determine the hierarchy, ensuring a **Consistency Ratio (CR) < 0.10** for valid, logical decision-making.
-    3. **Weighted Overlay Integration**: The **Groundwater Potential Index (GWPI)** is computed using a linear summation of weighted inputs:
+    st.subheader("⚙️ Analytical Processing (AHP)")
+    st.markdown("The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors influencing groundwater occurrence, including geology, geomorphology, slope, drainage density, lineament density, LULC, rainfall, and soil, were considered in the analysis.")
     
-    $$GWPI = \sum_{i=1}^{n} (W_i \times X_i)$$
-    
-    *Where $W_i$ represents the normalized weight and $X_i$ the reclassified rank for each respective theme.* 
+    st.markdown("Saaty's **Analytical Hierarchy Process (AHP)** was utilized to assign normalized weights to the thematic layers according to their relative influence on groundwater occurrence. Each thematic layer was reclassified into suitability classes, and ranks were assigned based on their contribution to groundwater recharge and storage potential.")
 
-    4. **Spatial Classification**: The final index is categorized into five susceptibility classes—**Very Low to Very High**—applying the **Natural Breaks (Jenks) classification method** to optimize the spatial clustering of potential groundwater zones.
-    """)
+    st.subheader("🚀 Automated Weighted Overlay")
+    st.markdown("The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the Groundwater Potential Index (GWPI) using a weighted summation approach:")
+    
+    st.latex(r"GWPI = \sum (W_i \times R_i)")
+    
+    st.markdown("**Where:**")
+    st.markdown("* $W_i$ = Weight assigned to each thematic layer")
+    st.markdown("* $R_i$ = Rank assigned to each class within the layer")
+    
+
+    st.markdown("The resulting Groundwater Potential Index was classified into five categories: **Very Low, Low, Moderate, High, and Very High**. These classes represent varying levels of groundwater potential across the study area and provide valuable information for groundwater exploration, recharge planning, and sustainable water resource management.")
