@@ -598,26 +598,21 @@ with tab3:
 | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
 """)
 
-    st.subheader("⚙️ Analytical Processing (AHP)")
+st.subheader("⚙️ Analytical Processing (AHP)")
+    # Explain the AHP process for better conceptual understanding
+    st.write("The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors influencing groundwater occurrence, including geology, geomorphology, slope, drainage density, lineament density, LULC, rainfall, and soil, were considered in the analysis.")
     
-    st.write("""
-    The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors influencing groundwater occurrence, including geology, geomorphology, slope, drainage density, lineament density, land use/land cover (LULC), rainfall, and soil, were considered in the analysis. 
     
-    Saaty's **Analytical Hierarchy Process (AHP)** was utilized to assign normalized weights to the thematic layers according to their relative influence on groundwater occurrence. Each thematic layer was reclassified into suitability classes, and ranks were assigned based on their contribution to groundwater recharge and storage potential.
-    """)
+    st.write("Saaty's **Analytical Hierarchy Process (AHP)** was utilized to assign normalized weights to the thematic layers according to their relative influence on groundwater occurrence. Each thematic layer was reclassified into suitability classes, and ranks were assigned based on their contribution to groundwater recharge and storage potential.")
 
     st.subheader("🚀 Automated Weighted Overlay")
-    st.write("""
-    The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the Groundwater Potential Index (GWPI) using a weighted summation approach:
-    """)
-    
+    st.write("The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the Groundwater Potential Index (GWPI) using a weighted summation approach:")
     
     st.latex(r"GWPI = \sum (W_i \times R_i)")
     
-    st.write("""
-    **Where:**
-    * $W_i$ = Weight assigned to each thematic layer
-    * $R_i$ = Rank assigned to each class within the layer
+    st.write("**Where:**")
+    st.write("* $W_i$ = Weight assigned to each thematic layer")
+    st.write("* $R_i$ = Rank assigned to each class within the layer")
+    
 
-    The resulting Groundwater Potential Index was classified into five categories: **Very Low, Low, Moderate, High, and Very High**. These classes represent varying levels of groundwater potential across the study area and provide valuable information for groundwater exploration, recharge planning, and sustainable water resource management.
-    """)
+    st.write("The resulting Groundwater Potential Index was classified into five categories: **Very Low, Low, Moderate, High, and Very High**. These classes represent varying levels of groundwater potential across the study area and provide valuable information for groundwater exploration, recharge planning, and sustainable water resource management.")
