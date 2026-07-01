@@ -579,14 +579,21 @@ with tab3:
 | **Lineaments** | Bhuvan WMS | Vector | Fault and fracture density mapping |
 | **Drainage** | Derived from DEM | Vector | Runoff and stream network density |
     
-### ⚙️ Analytical Processing (AHP)
-    The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors including geology, geomorphology, slope, drainage density, lineament density, surface cover, rainfall, and soil were considered in the analysis.     
+st.subheader("⚙️ Analytical Processing (AHP)")
+    st.write("""
+    The individual thematic layers were processed and integrated within a GIS environment to evaluate groundwater potential. Key factors influencing groundwater occurrence, including geology, geomorphology, slope, drainage density, lineament density, land use/land cover (LULC), rainfall, and soil, were considered in the analysis. 
+    
     Saaty's **Analytical Hierarchy Process (AHP)** was utilized to assign normalized weights to the thematic layers according to their relative influence on groundwater occurrence. Each thematic layer was reclassified into suitability classes, and ranks were assigned based on their contribution to groundwater recharge and storage potential.
+    """)
 
-    ### 🚀 Automated Weighted Overlay
-    The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the **Groundwater Potential Index (GWPI)** using a weighted summation approach: 
-    $$GWPI = \sum (W_i \times R_i)$$
-
+    st.subheader("🚀 Automated Weighted Overlay")
+    st.write("""
+    The weighted overlay analysis was implemented using **ArcPy** within ArcGIS Pro, enabling automated raster processing, weight application, and map generation. The weighted layers were combined to calculate the Groundwater Potential Index (GWPI) using a weighted summation approach:
+    """)
+    
+    st.latex(r"GWPI = \sum (W_i \times R_i)")
+    
+    st.write("""
     **Where:**
     * $W_i$ = Weight assigned to each thematic layer
     * $R_i$ = Rank assigned to each class within the layer
