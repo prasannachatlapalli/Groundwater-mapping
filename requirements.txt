@@ -1,3 +1,4 @@
+
 streamlit
 folium
 rasterio
@@ -8,3 +9,5 @@ Pillow
 geopandas
 plotly
 pandas
+shapely
+python-dotenv
