@@ -188,7 +188,8 @@ TIFF_LAYERS_REGISTRY = {
 }
 
 # --- GLOBAL DATA LOADING ---
-VILLAGE_GEOJSON_PATH = r"C:\Users\Chatl\OneDrive\Pictures\Documents\Pictures\Desktop\web application\GWPZM WEB\villagesmedchal.geojson"
+BASE_DIR = Path(__file__).resolve().parent
+VILLAGE_GEOJSON_PATH = BASE_DIR / "data" / "villagesmedchal.geojson"
 
 @st.cache_data
 def load_village_data(path):
